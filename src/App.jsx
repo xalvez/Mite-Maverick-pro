@@ -16,10 +16,10 @@ import { LanguageProvider } from './context/LanguageContext';
  
 
 function App() {
-  const [trianglePosition, setTrianglePosition] = useState(-100);
-  const [lettersVisible, setLettersVisible] = useState([]);
-  const [taglineVisible, setTaglineVisible] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [ ,setTrianglePosition] = useState(-100);
+  const [, setLettersVisible] = useState([]);
+  const [, setTaglineVisible] = useState(false);
+
 
   /** Logo animation start */
   React.useEffect(() => {
@@ -40,7 +40,7 @@ function App() {
   }, []);
 
   const [theme, setTheme] = useState("light");
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [, setMousePos] = useState({ x: 0, y: 0 });
 
   // Handle theme toggle
   const toggleTheme = () => {

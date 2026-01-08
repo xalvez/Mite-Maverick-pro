@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef , useMemo } from "react";
 import "./Navbar.css";
 import { FiMenu, FiX, FiGlobe } from "react-icons/fi";
 import { useLanguage } from "../../context/LanguageContext"; 
@@ -20,25 +20,16 @@ const FixedLogoNavbar = ({ heroLogoImage = logonavbar, heroVideo }) => {
 
   // Updated navItems to use translations from your JSON files
   // We use a fallback label in case the translation hasn't loaded yet
-const navItems = [
+  const navItems = useMemo(() => [
     { id: "home", label: translations?.nav?.home || "Home" },
     { id: "about", label: translations?.nav?.about || "About" },
     { id: "outvision", label: translations?.nav?.ourVision || "OurVision" },
     { id: "services", label: translations?.nav?.services || "Services" },
     { id: "YourRequest", label: translations?.nav?.yourRequest || "YourRequest" },
     { id: "contact", label: translations?.nav?.contact || "Contact" },
-  ];
+  ], [translations]); // Only recreate when translations change
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
-      updateActiveLinkOnScroll();
-    };
-    window.addEventListener("scroll", handleScroll);
-    setTimeout(() => setLogoLoaded(true), 200);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+useEffect(() => {
   const updateActiveLinkOnScroll = () => {
     const sections = navItems.map((item) => document.getElementById(item.id));
     const scrollPosition = window.scrollY + 100;
@@ -50,6 +41,18 @@ const navItems = [
       }
     }
   };
+
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 80);
+    updateActiveLinkOnScroll();
+  };
+  
+  window.addEventListener("scroll", handleScroll);
+  setTimeout(() => setLogoLoaded(true), 200);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [navItems]); // Only navItems as dependency
+
+ 
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);

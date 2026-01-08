@@ -4,7 +4,6 @@ export const useTypewriter = (words, speed = 100, pause = 2000) => {
   const [index, setIndex] = useState(0); // Word index
   const [subIndex, setSubIndex] = useState(0); // Character index
   const [isDeleting, setIsDeleting] = useState(false);
-  const [blink, setBlink] = useState(false);
 
   // Handle typing logic
   useEffect(() => {

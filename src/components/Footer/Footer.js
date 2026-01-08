@@ -21,11 +21,11 @@ const MiteFooter = () => {
 
           {/* Social Links */}
           <div className="mm-social-wrapper">
-            <a href="#" className="mm-social-icon"><img src={instaIcon} alt="Instagram" /></a>
-            <a href="#" className="mm-social-icon"><img src={linkedinIcon} alt="LinkedIn" /></a>
-            <a href="#" className="mm-social-icon"><img src={whatsappIcon} alt="WhatsApp" /></a>
-            <a href="#" className="mm-social-icon"><img src={facebookIcon} alt="Facebook" /></a>
-            <a href="#" className="mm-social-icon"><img src={TelegramIcon} alt="Facebook" /></a>
+            <a href="http://localhost:4000/Mite-Maverick-pro" className="mm-social-icon"><img src={instaIcon} alt="Instagram" /></a>
+            <a href="http://localhost:4000/Mite-Maverick-pro" className="mm-social-icon"><img src={linkedinIcon} alt="LinkedIn" /></a>
+            <a href="http://localhost:4000/Mite-Maverick-pro" className="mm-social-icon"><img src={whatsappIcon} alt="WhatsApp" /></a>
+            <a href="http://localhost:4000/Mite-Maverick-pro" className="mm-social-icon"><img src={facebookIcon} alt="Facebook" /></a>
+            <a href="http://localhost:4000/Mite-Maverick-pro" className="mm-social-icon"><img src={TelegramIcon} alt="Facebook" /></a>
           </div>
         </div>
 

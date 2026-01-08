@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect  } from "react";
 import "./ServicesSection.css";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -8,22 +8,6 @@ import CustomSoftware from '../../assets/images/services/custom-software.png';
 import CustomAPIs from '../../assets/images/services/custom-api.png';
 import GraphicDesign from '../../assets/images/services/graphic-design.png';
 import FinTech from '../../assets/images/services/fin-teck.png';
-
-export default function OrbitServices() {
-  const { language } = useLanguage();
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [services, setServices] = useState([]);
-  const [title, setTitle] = useState("Our Services");
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  const serviceImages = {
-    1: Application,
-    2: InternalSystems,
-    3: CustomSoftware,
-    4: CustomAPIs,
-    5: GraphicDesign,
-    6: FinTech
-  };
 
   const englishServices = [
     { 
@@ -102,6 +86,26 @@ export default function OrbitServices() {
       image: FinTech 
     }
   ];
+
+export default function OrbitServices() {
+  const { language } = useLanguage();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [services, setServices] = useState([]);
+  const [title, setTitle] = useState("Our Services");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const serviceImages = {
+    1: Application,
+    2: InternalSystems,
+    3: CustomSoftware,
+    4: CustomAPIs,
+    5: GraphicDesign,
+    6: FinTech
+  };
+
+
+
+  
 
   useEffect(() => {
     if (language === 'ar') {

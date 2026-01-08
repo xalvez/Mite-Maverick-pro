@@ -1,41 +1,41 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./About.css";
 import conceptImage from "../../assets/images/OurVision-image/ddddd@4x.png";
 import { useLanguage } from "../../context/LanguageContext";
 
-const ScrollingNumber = ({ value, duration = 2500 }) => {
-  const [count, setCount] = useState(0);
-  const countRef = useRef(null);
-  const numericValue = parseInt(value.replace(/\D/g, ""));
-  const suffix = value.replace(/[0-9]/g, "");
+// const ScrollingNumber = ({ value, duration = 2500 }) => {
+//   const [count, setCount] = useState(0);
+//   const countRef = useRef(null);
+//   const numericValue = parseInt(value.replace(/\D/g, ""));
+//   const suffix = value.replace(/[0-9]/g, "");
 
-  useEffect(() => {
-    let startTime = null;
-    const animate = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      setCount(Math.floor(progress * numericValue));
-      if (progress < 1) requestAnimationFrame(animate);
-    };
+//   useEffect(() => {
+//     let startTime = null;
+//     const animate = (timestamp) => {
+//       if (!startTime) startTime = timestamp;
+//       const progress = Math.min((timestamp - startTime) / duration, 1);
+//       setCount(Math.floor(progress * numericValue));
+//       if (progress < 1) requestAnimationFrame(animate);
+//     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) requestAnimationFrame(animate);
-      },
-      { threshold: 0.5 }
-    );
+//     const observer = new IntersectionObserver(
+//       (entries) => {
+//         if (entries[0].isIntersecting) requestAnimationFrame(animate);
+//       },
+//       { threshold: 0.5 }
+//     );
 
-    if (countRef.current) observer.observe(countRef.current);
-    return () => observer.disconnect();
-  }, [numericValue, duration]);
+//     if (countRef.current) observer.observe(countRef.current);
+//     return () => observer.disconnect();
+//   }, [numericValue, duration]);
 
-  return (
-    <span ref={countRef}>
-      {count}
-      {suffix}
-    </span>
-  );
-};
+//   return (
+//     <span ref={countRef}>
+//       {count}
+//       {suffix}
+//     </span>
+//   );
+// };
 
 const About = () => {
   const { language } = useLanguage();
